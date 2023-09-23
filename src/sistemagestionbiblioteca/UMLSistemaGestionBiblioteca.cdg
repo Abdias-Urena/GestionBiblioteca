@@ -2,17 +2,15 @@
 
 <ClassDiagram name="UMLSistemaGestionBiblioteca">
   <ClassDiagramComponents>
-    <Class name="Library" package="" visibility="public" xPosition="436.0" yPosition="17.0">
+    <Class name="Library" package="" visibility="public" xPosition="391.0" yPosition="32.0">
       <Fields>
         <Field name="untitledField" type="Object" visibility="private"/>
-        <Field name="untitledField1" type="Object" visibility="private"/>
+        <Field name="untitledField2" type="Object" visibility="private"/>
       </Fields>
       <Constructors/>
-      <Methods>
-        <Method name="untitledMethod" returnType="void" visibility="public"/>
-      </Methods>
+      <Methods/>
     </Class>
-    <Class name="Book" package="" visibility="public" xPosition="99.0" yPosition="254.0">
+    <Class name="Book" package="" visibility="public" xPosition="267.0" yPosition="347.0">
       <Fields>
         <Field name="tiltle" type="string" visibility="private"/>
         <Field name="category" type="string" visibility="private"/>
@@ -23,7 +21,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="User" package="" visibility="public" xPosition="436.0" yPosition="196.0">
+    <Class name="User" package="" visibility="public" xPosition="471.0" yPosition="250.0">
       <Fields>
         <Field name="name" type="string" visibility="private"/>
         <Field name="lastname" type="string" visibility="private"/>
@@ -35,7 +33,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Loan" package="" visibility="public" xPosition="669.0" yPosition="393.0">
+    <Class name="Loan" package="" visibility="public" xPosition="680.0" yPosition="413.0">
       <Fields>
         <Field name="id" type="string" visibility="private"/>
         <Field name="loanDate" type="string" visibility="private"/>
@@ -45,7 +43,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Devolution" package="" visibility="public" xPosition="759.0" yPosition="157.0">
+    <Class name="Devolution" package="" visibility="public" xPosition="809.0" yPosition="173.0">
       <Fields>
         <Field name="devolutionDate" type="string" visibility="private"/>
         <Field name="loan" type="Loan" visibility="private"/>
@@ -53,7 +51,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Device" package="" visibility="public" xPosition="341.0" yPosition="526.0">
+    <Class name="Device" package="" visibility="public" xPosition="425.0" yPosition="594.0">
       <Fields>
         <Field name="id" type="string" visibility="private"/>
         <Field name="brand" type="string" visibility="private"/>
@@ -66,19 +64,23 @@
     </Class>
     <Class name="LoanBook" package="" visibility="public" xPosition="827.0" yPosition="623.0">
       <Fields>
-        <Field name="book" type="Book" visibility="private"/>
+        <Field name="tiltle" type="string" visibility="private"/>
+        <Field name="category" type="string" visibility="private"/>
+        <Field name="author" type="string" visibility="private"/>
+        <Field name="reproduction" type="string" visibility="private"/>
+        <Field name="publicationDate" type="string" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="LoanDevice" package="" visibility="public" xPosition="580.0" yPosition="623.0">
+    <Class name="LoanDevice" package="" visibility="public" xPosition="669.0" yPosition="632.0">
       <Fields>
         <Field name="device" type="Device" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Ticket" package="" visibility="public" xPosition="890.0" yPosition="382.0">
+    <Class name="Ticket" package="" visibility="public" xPosition="856.0" yPosition="393.0">
       <Fields>
         <Field name="devolution" type="Devolution" visibility="private"/>
         <Field name="ticket" type="string" visibility="private"/>
@@ -88,19 +90,28 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Reportes" package="" visibility="public" xPosition="160.0" yPosition="113.0">
-      <Fields/>
-      <Constructors/>
-      <Methods/>
-    </Class>
-    <Class name="DigitalBook" package="" visibility="public" xPosition="160.0" yPosition="490.0">
+    <Class name="Report" package="" visibility="public" xPosition="611.0" yPosition="32.0">
       <Fields>
-        <Field name="url" type="string" visibility="private"/>
+        <Field name="title" type="string" visibility="private"/>
+        <Field name="dateReport" type="string" visibility="private"/>
+        <Field name="typeReport" type="string" visibility="private"/>
+        <Field name="description" type="string" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="FisicBook" package="" visibility="public" xPosition="-17.0" yPosition="490.0">
+    <Class name="DigitalBook" package="" visibility="public" xPosition="197.0" yPosition="593.0">
+      <Fields>
+        <Field name="id" type="string" visibility="private"/>
+        <Field name="brand" type="string" visibility="private"/>
+        <Field name="state" type="boolean" visibility="private"/>
+        <Field name="charger" type="boolean" visibility="private"/>
+        <Field name="type" type="string" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="FisicBook" package="" visibility="public" xPosition="13.0" yPosition="623.0">
       <Fields>
         <Field name="available" type="boolean" visibility="private"/>
         <Field name="state" type="boolean" visibility="private"/>
@@ -108,17 +119,49 @@
       <Constructors/>
       <Methods/>
     </Class>
+    <Interface name="IReport" package="" visibility="public" xPosition="786.0" yPosition="32.0">
+      <Methods>
+        <Method name="generateReport" returnType="string" visibility="public">
+          <Argument type="Report" name="report"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="IBook" package="" visibility="public" xPosition="29.0" yPosition="264.0">
+      <Methods>
+        <Method name="addBook" returnType="void" visibility="public">
+          <Argument type="Book" name="book"/>
+        </Method>
+        <Method name="deleteBook" returnType="boolean" visibility="public">
+          <Argument type="Book" name="book"/>
+        </Method>
+        <Method name="modifyUrlBook" returnType="boolean" visibility="public">
+          <Argument type="Book" name="book"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="IDevice" package="" visibility="public" xPosition="30.0" yPosition="121.0">
+      <Methods>
+        <Method name="loanDevice" returnType="void" visibility="public">
+          <Argument type="User" name="user"/>
+          <Argument type="Device" name="device"/>
+        </Method>
+        <Method name="returnDevice" returnType="boolean" visibility="public">
+          <Argument type="Device" name="device"/>
+        </Method>
+        <Method name="obtainDeviceAvailable" returnType="List&lt;Device&gt;" visibility="public"/>
+      </Methods>
+    </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
     <HasRelation name="book" source="Book" target="LoanBook" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="ticket" source="Ticket" target="User" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="ArrayList"/>
-    <HasRelation name="ticket" source="Ticket" target="Devolution" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="LoanDevice" target="Loan"/>
-    <IsRelation name="is" source="DigitalBook" target="Book"/>
-    <IsRelation name="is" source="FisicBook" target="Book"/>
-    <HasRelation name="devolution" source="Devolution" target="Loan" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="device" source="LoanDevice" target="Device" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="user" source="Loan" target="User" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="LoanDevice" target="Loan"/>
+    <HasRelation name="ticket" source="Ticket" target="User" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="ArrayList"/>
     <IsRelation name="is" source="LoanBook" target="Loan"/>
+    <HasRelation name="ticket" source="Ticket" target="Devolution" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="DigitalBook" target="Book"/>
+    <HasRelation name="user" source="Loan" target="User" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="devolution" source="Devolution" target="Loan" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="FisicBook" target="Book"/>
   </ClassDiagramRelations>
 </ClassDiagram>
